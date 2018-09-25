@@ -12,7 +12,7 @@ class AllStarShips extends Component {
     this.getStarShips()
   }
   getStarShips = () => {
-    fetch('http://localhost:60032', {
+    fetch('http://localhost:60964', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -30,13 +30,13 @@ class AllStarShips extends Component {
               <div>
                   <Grid container spacing={24} style={{padding: 24}}>
                       { this.state.starships.map(currentShip => (
-                          <Grid item xs={12} sm={6} lg={4} xl={3}>
+                          <Grid key={currentShip.id} item xs={12} sm={6} lg={4} xl={3}>
                               <Ship ship={currentShip} />
                           </Grid>
                       ))}
                   </Grid>
               </div>
-          ) : "No courses found" }
+          ) : "No starships found" }
       </div>
     )
   }
